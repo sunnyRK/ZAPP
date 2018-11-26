@@ -8,6 +8,8 @@ urlpatterns = [
 
     path('',views.home, name="home"),
     path('secret/',views.secret_page,name="secret"),
-    path('secret2/',views.SecretPage.as_view(),name="secret2"),
-    path('add/',views.add_new,name="add"),
+    path('add/',views.AddPost.as_view(),name="addpost"),
+    path('<int:pk>/update/',views.UpdatePost.as_view(),name="updatepost"),
+    path('<int:pk>/delete/',views.DeletePost.as_view(),name="deletepost"),
+    # path('secret2/',views.SecretPage.as_view(),name="secret2"),
 ]
