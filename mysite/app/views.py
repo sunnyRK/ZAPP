@@ -47,13 +47,16 @@ def secret_page(request):
 
 class AddPost(CreateView):
     model = Post
-    fields = ('author','title','description','create_date')
+    fields = ('title','description','create_date','upload')
     template_name = 'post_form.html'
     success_url = reverse_lazy('app:home')
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super(AddPost, self).form_valid(form)
 
 class UpdatePost(UpdateView):
     model = Post
-    fields = ('author','title','description','create_date')
+    fields = ('title','description','create_date','upload')
     template_name = 'post_update.html'
     success_url = reverse_lazy('app:home')
 

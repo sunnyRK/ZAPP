@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
     <h1>News Feed</h1>
-    <a href="{% url 'app:addpost' %}"><button type="button" class="btn btn-info btn-lg" >Add New Post</button></a>
+    <a href="{% url 'app:addpost' %}"><button type="button" class="btn btn-info" >Add New Post</button></a>
 
     <hr>
     <!-- <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Add Post</button> -->
@@ -31,11 +31,11 @@
         {% for post in posts %}
             <h1>Posted: @{{post.author}}</h1>
             <div>
-              <p>Title: {{post.title}}</p>
+              <h4>Title: {{post.title}}</h4>
               <p>{{post.description}}</p>
               <p>{{post.create_date}}</p>
-              <a href="{% url 'app:updatepost' post.id%}"><button type="button" class="btn btn-primary btn-lg" >UPDATE</button></a>
-              <a href="{% url 'app:deletepost' post.id%}"><button type="button" class="btn btn-danger btn-lg" >DELETE</button></a>
+              <a href="{% url 'app:updatepost' post.id%}"><button type="button" class="btn btn-primary" >UPDATE</button></a>
+              <a href="{% url 'app:deletepost' post.id%}"><button type="button" class="btn btn-danger" >DELETE</button></a>
           </div>
             <hr>
         {% endfor %}
